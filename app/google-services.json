@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "235092555256",
+    "project_id": "arrakis-star",
+    "storage_bucket": "arrakis-star.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235092555256:android:970434b59f54146b64520d",
+        "android_client_info": {
+          "package_name": "com.example.arrakis_star"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-GGIDUctcfweOnPQaCZujrdREsIpiqMk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
