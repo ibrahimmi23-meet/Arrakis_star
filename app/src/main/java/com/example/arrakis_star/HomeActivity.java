@@ -1,15 +1,20 @@
 package com.example.arrakis_star;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.Toast;
+import androidx.fragment.app.FragmentManager;
+
 import com.google.android.material.navigation.NavigationView;
+
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawerLayout;
 
@@ -17,7 +22,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        Toolbar toolbar = findViewById(R.id.toolbar); //Ignore red line errors
+
+        // Your existing code for setting up the toolbar and navigation drawer
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -26,6 +33,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 R.string.close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        // Display the initial fragment (assuming R.id.fragment_container exists in your activity_home.xml)
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CoreFragment()).commit();
+        }
     }
 
     @Override
@@ -41,7 +53,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         } else if (itemId == R.id.acc_min) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AccFragment()).commit();
         } else if (itemId == R.id.logout_min) {
-            Toast.makeText(this, "Logout!", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);

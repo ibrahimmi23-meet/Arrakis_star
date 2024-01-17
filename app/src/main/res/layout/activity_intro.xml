@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3498db"> <!-- Use your desired shade of blue, this is a common blue color -->
+
+    <!-- Add your UI elements or components here -->
+
+</RelativeLayout>
